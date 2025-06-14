@@ -68,10 +68,10 @@ install: snd-soc-wm8960.ko snd-soc-max9759.ko snd-soc-volume-gpio.ko tagtagtag-s
 	systemctl enable tagtagtag-mixerd
 
 tagtagtag-mixerd : tagtagtag-mixerd.c
-	cc -Wall -Werror $< -lasound -lpthread -o $@
+	$(CC) -Wall -Werror $< -lasound -lpthread -o $@
 
 tagtagtag-mixerd-test : tagtagtag-mixerd.c
-	cc -Wall -Werror -DTEST $< -lasound -lpthread -o $@
+	$(CC) -Wall -Werror -DTEST $< -lasound -lpthread -o $@
 
 test : tagtagtag-mixerd-test
 	./tagtagtag-mixerd-test
